@@ -1,0 +1,39 @@
+@use "vars" as *;
+
+.section-providers {
+    background-color: $bg-primary;
+    padding: 20px 0;
+
+    figure {
+        margin-inline: 45px;
+        cursor: pointer;
+    }
+
+    figure:hover img {
+        filter: brightness(200%);
+    }
+
+    figure:hover a {
+        color: $white;
+    }
+
+    img {
+        max-height: 50px;
+        width: 45px;
+        object-fit: contain;
+        filter: brightness(70%);
+        transition: filter 0.5s ease;
+    }
+
+    figcaption {
+        padding-left: 5px;
+
+        a {
+            color: rgb(200, 200, 200);
+            font-size: 13px;
+            text-transform: uppercase;
+            transition: color 0.5s ease;
+        }
+    }
+}
+

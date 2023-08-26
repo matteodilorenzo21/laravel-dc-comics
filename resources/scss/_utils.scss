@@ -1,0 +1,30 @@
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.space-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    align-items: flex-start;
+}
+
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}

@@ -1,0 +1,73 @@
+@use "vars" as *;
+
+footer {
+    height: 350px;
+    background-image:url("../img/dc-logo-bg.png"), url("../img/footer-bg.jpg");
+
+    background-position: calc(100% - 250px), top;
+    background-size: 30%, cover;
+    background-repeat: no-repeat;
+
+    padding: 20px 0;
+
+    h4 {
+        color: $white;
+        padding-top: 20px;
+    }
+
+    li {
+        color: rgb(110, 110, 110);
+        text-transform: capitalize;
+        cursor: pointer;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    .footer-col {
+        margin-right: 50px;
+    }
+
+}
+
+.lower-footer {
+    background-color: $bg-tertiary;
+    padding: 10px 0;
+}
+
+.footer-btn {
+    display: inline-block;
+    padding: 15px 60px;
+    padding-top: 17px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    border: 2px solid $bg-primary;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+        background-color: $bg-primary;
+    }
+}
+
+h4 {
+    color: $bg-primary;
+    margin-right: 20px;
+}
+
+.social-ref img {
+    height: 30px;
+    margin-inline: 8px;
+    transition: filter 0.3s ease;
+
+    &:hover {
+        filter: brightness(200%);
+    }
+}
+

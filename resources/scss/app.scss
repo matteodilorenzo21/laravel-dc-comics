@@ -1,0 +1,14 @@
+// @import '~bootstrap/scss/bootstrap';
+@use "vars";
+@use "utils";
+@use "reset";
+@use "generics";
+@use "fonts";
+
+// Components
+@use "header";
+@use "hero";
+@use "comics";
+@use "providers";
+@use "footer";
+@use "comic";
