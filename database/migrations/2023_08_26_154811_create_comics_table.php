@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id()->unique();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('thumb')->nullable();
+            $table->text('thumb')->nullable();
             $table->decimal('price', 8, 2);
             $table->string('series');
             $table->date('sale_date')->nullable();
             $table->string('type')->default('comic book');
             $table->json('artists')->nullable();
+            $table->json('writers')->nullable();
             $table->timestamps();
         });
     }
