@@ -18,7 +18,7 @@ $comics = config('comics');
 
             @foreach ($comics as $comic)
                 <div class="column">
-                    <a href="{{ url("/comic/$loop->index") }}">
+                    <a href="{{ url('/comics/' . ($loop->index + 1)) }}">
                         <div class="card">
                             <img src="{{ $comic['thumb'] }}" alt="{{ $comic['title'] }}" class="card-img-top">
                             <div class="card-body">

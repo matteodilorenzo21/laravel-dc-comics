@@ -29,12 +29,15 @@ Route::get('/comics', function () {
 })->name('comics');
 
 // SINGLE COMIC
-Route::get('/comic/{index}', function ($index) {
-    $comics = config('comics');
-    $comic = $comics[$index];
-
-    return view('comic', compact('comic'));
-})->name('comic');
+Route::get('/comics/{comic}', [ComicController::class, 'show'])->name('comics.show');
+/** 
+ Route::get('/comic/{index}', function ($index) {
+     $comics = config('comics');
+     $comic = $comics[$index];
+ 
+     return view('comic', compact('comic'));
+ })->name('comic');
+ */
 
 // MOVIES
 Route::get('/movies', function () {

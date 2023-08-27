@@ -28,7 +28,7 @@
             <tbody>
                 @foreach ($comics as $comic)
                     <tr>
-                        <td><a class="text-white" href="{{ url("/comic/$loop->index") }}">
+                        <td><a class="text-white" href="{{ url('/comics/' . ($loop->index + 1)) }}">
                                 <img class="comic-miniature" src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
                                 {{ $comic->title }}</a></td>
                         <td>{{ Str::limit($comic->description, 90, '...') }}</td>
@@ -48,6 +48,7 @@
                         </td>
                     </tr>
                 @endforeach
+
             </tbody>
         </table>
     </main>
