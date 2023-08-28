@@ -1,6 +1,6 @@
 <footer>
 
-    <div class="container">
+    <div class="container upper-footer">
 
         <div class="row">
 
@@ -59,7 +59,16 @@
 
         </div>
 
+        <div class="container">
+            <p class="mt-3">
+                All Site Content TM and © 2023 DC Entertainment, unless otherwise <a>noted here</a>. All rights
+                reserved.<br>
+                <a>Cookies Settings</a>
+            </p>
+        </div>
+
     </div>
+
 
 </footer>
 

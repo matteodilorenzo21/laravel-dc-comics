@@ -2,7 +2,10 @@
 
 @section('title', $comic->title)
 
+@section('icon', $comic->thumb ?? null)
+
 @section('main-content')
+
     <section id="comic-details">
         <figure>
             <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}" class="comic-thumb">

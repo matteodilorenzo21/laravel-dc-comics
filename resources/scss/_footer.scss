@@ -1,7 +1,7 @@
 @use "vars" as *;
 
 footer {
-    height: 350px;
+    height: 340px;
     background-image:url("../img/dc-logo-bg.png"), url("../img/footer-bg.jpg");
 
     background-position: calc(100% - 250px), top;
@@ -17,6 +17,7 @@ footer {
 
     li {
         color: rgb(110, 110, 110);
+        font-size: 14px;
         text-transform: capitalize;
         cursor: pointer;
         transition: color 0.2s ease;
@@ -27,9 +28,21 @@ footer {
     }
 
     .footer-col {
-        margin-right: 50px;
+        margin-left: 15px;
     }
 
+}
+
+.upper-footer {
+    p {
+        font-size: 12px;
+        color: rgb(110, 110, 110);
+    }
+
+    a {
+        color: $bg-primary;
+        cursor: pointer;
+    }
 }
 
 .lower-footer {
