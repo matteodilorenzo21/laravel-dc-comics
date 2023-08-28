@@ -10,7 +10,7 @@
     <main>
         <div class="text-center">
             <h1 class="text-center text-white pt-3">REGISTERED COMICS</h1>
-            <span class="text-white">UPLOAD A COMIC</span><button id="add-comic-btn" class="mt-2 mx-2">+</button>
+            <span class="text-white">UPLOAD A NEW COMIC</span><button id="add-comic-btn" class="mt-2 mx-2">+</button>
         </div>
         <table class="my-3">
             <thead>

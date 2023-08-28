@@ -1,8 +1,7 @@
-<?php
-
-$comics = config('comics');
-
-?>
+@php
+    use App\Models\Comic;
+    $comics = Comic::paginate(12);
+@endphp
 
 <section>
 
@@ -18,16 +17,18 @@ $comics = config('comics');
 
             @foreach ($comics as $comic)
                 <div class="column">
-                    <a href="{{ url('/comics/' . ($loop->index + 1)) }}">
+                    <a href="{{ url('/comics/' . $comic->id) }}">
                         <div class="card">
-                            <img src="{{ $comic['thumb'] }}" alt="{{ $comic['title'] }}" class="card-img-top">
+                            <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}" class="card-img-top">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $comic['title'] }}</h5>
+                                <h5 class="card-title">{{ $comic->title }}</h5>
                             </div>
                         </div>
                     </a>
                 </div>
             @endforeach
+
+
 
         </div>
 
