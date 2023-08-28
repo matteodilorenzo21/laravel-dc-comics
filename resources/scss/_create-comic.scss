@@ -1,0 +1,57 @@
+@use "vars" as *;
+
+#create-header {
+    height: 80px;
+    padding-top: 15px;
+
+    img {
+        height: 50px;
+        filter: brightness(100);
+        transition: filter 0.1s ease-in-out;
+
+        &:hover {
+            filter: brightness(1);
+        }
+    }
+
+}
+
+.nav-link {
+    color: $white;
+    font-size: 14px;
+    padding-bottom: 20px;
+    transition: color 0.1s ease;
+    &:hover {
+        color: $bg-primary;
+        border-bottom: none;
+    }
+}
+
+#create-main {
+    background-color: transparent;
+    padding: 30px 65px;
+
+    .card {
+        padding: initial;
+        margin-bottom: initial;
+        height: initial;
+        border-radius: initial;
+        text-transform: none;
+        color: initial;
+        background-color: transparent;
+        transition: initial;
+    
+        &:hover {
+            color: initial;
+            transform: initial;
+        }
+    }
+
+    input,
+    textarea,
+    select {
+        border: 1px solid $black;
+    }
+}
+
+

@@ -34,6 +34,9 @@ Route::get('/comics/create', [ComicController::class, 'create'])->name('comics.c
 // SHOW COMIC
 Route::get('/comics/{comic}', [ComicController::class, 'show'])->name('comics.show');
 
+// STORE COMIC
+Route::post('/comics', [ComicController::class, 'store'])->name('comics.store');
+
 // MOVIES
 Route::get('/movies', function () {
     return view('movies');
