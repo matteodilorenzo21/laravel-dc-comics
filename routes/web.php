@@ -23,21 +23,16 @@ Route::get('/characters', function () {
     return view('characters');
 })->name('characters');
 
-// COMICS
+// INDEX COMICS
 Route::get('/comics', function () {
     return view('comics/index');
 })->name('comics');
 
-// SINGLE COMIC
+// CREATE COMIC
+Route::get('/comics/create', [ComicController::class, 'create'])->name('comics.create');
+
+// SHOW COMIC
 Route::get('/comics/{comic}', [ComicController::class, 'show'])->name('comics.show');
-/** 
- Route::get('/comic/{index}', function ($index) {
-     $comics = config('comics');
-     $comic = $comics[$index];
- 
-     return view('comic', compact('comic'));
- })->name('comic');
- */
 
 // MOVIES
 Route::get('/movies', function () {
