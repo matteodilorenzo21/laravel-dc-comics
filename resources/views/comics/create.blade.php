@@ -77,20 +77,30 @@
             {{-- CARD-BODY --}}
             <div class="card-body border border-dark rounded-bottom border-top-0 mt-0">
 
+                @if ($errors->any())
+                    <div class="alert bg-danger bg-opacity-50 px-0 pb-0">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li class="text-danger">• {{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ route('comics.store') }}">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
+                                <input type="text" class="form-control" id="title" name="title">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="series" class="form-label">Series</label>
-                                <input type="text" class="form-control" id="series" name="series" required>
+                                <input type="text" class="form-control" id="series" name="series">
                             </div>
                         </div>
                     </div>
@@ -107,8 +117,8 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="number" step="0.01" class="form-control" id="price" name="price"
-                                    required>
+                                <input type="number" step="0.01" class="form-control" id="price"
+                                    name="price">
                             </div>
                         </div>
                     </div>
@@ -163,7 +173,8 @@
                     <div class="d-flex justify-content-end">
                         <button type="reset" class="btn btn-danger me-2"><i class="fa-solid fa-rotate-right"></i>
                             reset</button>
-                        <button type="submit" class="btn btn-success ms-2"><i class="fa-solid fa-check"></i> create
+                        <button type="submit" class="btn btn-success ms-2"><i class="fa-solid fa-check"></i>
+                            create
                             comic</button>
                     </div>
 
