@@ -38,6 +38,9 @@ Route::get('/comics/{comic}/edit', [ComicController::class, 'edit'])->name('comi
 // STORE COMIC
 Route::post('/comics', [ComicController::class, 'store'])->name('comics.store');
 
+// UPDATE COMIC
+Route::put('/comics/{comic}', [ComicController::class, 'update'])->name('comics.update');
+
 // MOVIES
 Route::get('/movies', function () {
     return view('movies');

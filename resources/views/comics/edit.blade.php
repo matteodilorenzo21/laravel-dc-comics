@@ -77,8 +77,9 @@
             {{-- CARD-BODY --}}
             <div class="card-body border border-dark rounded-bottom border-top-0 mt-0">
 
-                <form method="POST" action="{{ route('comics.store') }}">
+                <form method="POST" action="{{ route('comics.update', $comic->id) }}">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
