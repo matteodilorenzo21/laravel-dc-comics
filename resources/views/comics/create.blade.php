@@ -77,15 +77,7 @@
             {{-- CARD-BODY --}}
             <div class="card-body border border-dark rounded-bottom border-top-0 mt-0">
 
-                @if ($errors->any())
-                    <div class="alert bg-danger bg-opacity-50 px-0 pb-0">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li class="text-danger">• {{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                @include('components.forms.error-alert')
 
                 <form method="POST" action="{{ route('comics.store') }}">
                     @csrf
@@ -93,14 +85,16 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control" id="title" name="title">
+                                <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                    id="title" name="title" value="{{ old('title') }}">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="series" class="form-label">Series</label>
-                                <input type="text" class="form-control" id="series" name="series">
+                                <input type="text" class="form-control @error('series') is-invalid @enderror"
+                                    id="series" name="series" value="{{ old('series') }}">
                             </div>
                         </div>
                     </div>
@@ -110,15 +104,16 @@
                             <div class="mb-3">
                                 <label for="type" class="form-label">Type</label>
                                 <input type="text" class="form-control" id="type" name="type"
-                                    value="comic book">
+                                    value="{{ old('type', 'comic book') }}">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="number" step="0.01" class="form-control" id="price"
-                                    name="price">
+                                <input type="number" step="0.01"
+                                    class="form-control @error('price') is-invalid @enderror" id="price"
+                                    name="price" min="0" value="{{ old('price') }}">
                             </div>
                         </div>
                     </div>
@@ -127,7 +122,7 @@
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" id="description" name="description"></textarea>
+                                <textarea class="form-control" id="description" name="description">{{ old('description') }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -136,19 +131,21 @@
                         <div class="col-md-2">
                             <div class="mb-3">
                                 <label for="sale_date" class="form-label">Sale Date</label>
-                                <input type="date" class="form-control" id="sale_date" name="sale_date">
+                                <input type="date" class="form-control" id="sale_date" name="sale_date"
+                                    value="{{ old('sale_date') }}">
                             </div>
                         </div>
                         <div class="col-md-8">
                             <div class="mb-3">
                                 <label for="thumb" class="form-label">Thumbnail URL</label>
-                                <input type="text" class="form-control" id="thumb" name="thumb"
-                                    oninput="updatePreviewImage()">
+                                <input type="text" class="form-control @error('thumb') is-invalid @enderror"
+                                    id="thumb" name="thumb" oninput="updatePreviewImage()"
+                                    value="{{ old('thumb') }}">
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="mb-1">
-                                <img src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
+                                <img src="{{ old('thumb', 'https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg') }}"
                                     alt="preview" id="create-preview-thumb" class="ms-3">
                             </div>
                         </div>
@@ -158,14 +155,16 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="artists" class="form-label">Artists</label>
-                                <input type="text" class="form-control" id="artists" name="artists">
+                                <input type="text" class="form-control" id="artists" name="artists"
+                                    value="{{ old('artists') }}">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="writers" class="form-label">Writers</label>
-                                <input type="text" class="form-control" id="writers" name="writers">
+                                <input type="text" class="form-control" id="writers" name="writers"
+                                    value="{{ old('writers') }}">
                             </div>
                         </div>
                     </div>

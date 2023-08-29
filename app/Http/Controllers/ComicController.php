@@ -32,7 +32,7 @@ class ComicController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'thumb' => 'nullable|string',
+            'thumb' => 'nullable|url:http,https',
             'price' => 'required|numeric|min:0',
             'series' => 'required|string|max:255',
             'sale_date' => 'nullable|date',
@@ -73,6 +73,19 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'thumb' => 'nullable|url:http,https',
+            'price' => 'required|numeric|min:0',
+            'series' => 'required|string|max:255',
+            'sale_date' => 'nullable|date',
+            'type' => 'required|string',
+            'artists' => 'nullable|string',
+            'writers' => 'nullable|string',
+        ]);
+
         $data = $request->all();
 
         $comic->update($data);

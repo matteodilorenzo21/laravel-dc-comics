@@ -77,6 +77,8 @@
             {{-- CARD-BODY --}}
             <div class="card-body border border-dark rounded-bottom border-top-0 mt-0">
 
+                @include('components.forms.error-alert')
+
                 <form method="POST" action="{{ route('comics.update', $comic->id) }}">
                     @csrf
                     @method('PUT')
@@ -85,7 +87,7 @@
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
                                 <input type="text" class="form-control" id="title" name="title"
-                                    value="{{ $comic->title }}" required>
+                                    value="{{ old('title', $comic->title) }}" required>
                             </div>
                         </div>
 
@@ -93,7 +95,7 @@
                             <div class="mb-3">
                                 <label for="series" class="form-label">Series</label>
                                 <input type="text" class="form-control" id="series" name="series"
-                                    value="{{ $comic->series }}" required>
+                                    value="{{ old('series', $comic->series) }}" required>
                             </div>
                         </div>
                     </div>
@@ -103,7 +105,7 @@
                             <div class="mb-3">
                                 <label for="type" class="form-label">Type</label>
                                 <input type="text" class="form-control" id="type" name="type"
-                                    value="{{ $comic->type }}">
+                                    value="{{ old('type', $comic->type) }}">
                             </div>
                         </div>
 
@@ -111,7 +113,8 @@
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price</label>
                                 <input type="number" step="0.01" class="form-control" id="price"
-                                    name="price" value="{{ $comic->price }}" required>
+                                    name="price" min="0" value="{{ old('price', $comic->price) }}"
+                                    required>
                             </div>
                         </div>
                     </div>
@@ -120,7 +123,7 @@
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" id="description" name="description" rows="3">{{ $comic->description }}</textarea>
+                                <textarea class="form-control" id="description" name="description" rows="3">{{ old('description', $comic->description) }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -130,19 +133,19 @@
                             <div class="mb-3">
                                 <label for="sale_date" class="form-label">Sale Date</label>
                                 <input type="date" class="form-control" id="sale_date" name="sale_date"
-                                    value="{{ $comic->sale_date }}">
+                                    value="{{ old('sale_date', $comic->sale_date) }}">
                             </div>
                         </div>
                         <div class="col-md-8">
                             <div class="mb-3">
                                 <label for="thumb" class="form-label">Thumbnail URL</label>
                                 <input type="text" class="form-control" id="thumb" name="thumb"
-                                    value="{{ $comic->thumb }}" oninput="updatePreviewImage()">
+                                    value="{{ old('thumb', $comic->thumb) }}" oninput="updatePreviewImage()">
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="mb-1">
-                                <img src="{{ $comic->thumb ?? 'https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg' }}"
+                                <img src="{{ old('thumb', $comic->thumb) ?? 'https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg' }}"
                                     alt="preview" id="create-preview-thumb" class="ms-3">
                             </div>
                         </div>
@@ -153,7 +156,7 @@
                             <div class="mb-3">
                                 <label for="artists" class="form-label">Artists</label>
                                 <input type="text" class="form-control" id="artists" name="artists"
-                                    value="{{ $comic->artists }}">
+                                    value="{{ old('artists', $comic->artists) }}">
                             </div>
                         </div>
 
@@ -161,7 +164,7 @@
                             <div class="mb-3">
                                 <label for="writers" class="form-label">Writers</label>
                                 <input type="text" class="form-control" id="writers" name="writers"
-                                    value="{{ $comic->writers }}">
+                                    value="{{ old('writers', $comic->writers) }}">
                             </div>
                         </div>
                     </div>
