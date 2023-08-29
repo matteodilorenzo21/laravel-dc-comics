@@ -3,16 +3,16 @@
 @section('title', 'Comics')
 
 @php
-    $comics = App\Models\Comic::all();
+    use App\Models\Comic;
+    $comics = Comic::all();
 @endphp
 
 @section('main-content')
     <main>
         <div class="text-center">
-            <h1 class="text-center text-white pt-3">REGISTERED COMICS</h1>
+            <h1 class="text-center text-white py-3">REGISTERED COMICS</h1>
             <span class="text-white">UPLOAD A NEW COMIC</span>
-            <button id="add-comic-btn" class="mt-2 mx-2"
-                onclick="window.location.href = '{{ route('comics.create') }}'">+</button>
+            <a id="add-comic-btn" class="mt-2 mx-2" href="{{ route('comics.create') }}">+</a>
         </div>
 
         <table class="my-3">
@@ -31,9 +31,12 @@
             <tbody>
                 @foreach ($comics as $comic)
                     <tr>
-                        <td><a class="text-white" href="{{ url('/comics/' . ($loop->index + 1)) }}">
+                        <td>
+                            <a class="text-white" href="{{ route('comics.show', ['comic' => $comic->id]) }}">
                                 <img class="comic-miniature" src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
-                                {{ $comic->title }}</a></td>
+                                {{ $comic->title }}
+                            </a>
+                        </td>
                         <td>{{ Str::limit($comic->description, 90, '...') }}</td>
                         <td>${{ $comic->price }}</td>
                         <td>{{ $comic->series }}</td>
@@ -51,7 +54,6 @@
                         </td>
                     </tr>
                 @endforeach
-
             </tbody>
         </table>
     </main>

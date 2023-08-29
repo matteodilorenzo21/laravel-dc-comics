@@ -203,7 +203,8 @@ tr td:first-child {
 
 #add-comic-btn {
     background-color: $bg-tertiary;
-    padding: 8px 12.5px;
+    padding: 6px 12px;
+    color: $white;
     border-radius: 50px;
     &:hover {
         background-color: lightseagreen;
