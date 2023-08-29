@@ -161,8 +161,10 @@
                     </div>
 
                     <div class="d-flex justify-content-end">
-                        <button type="reset" class="btn btn-danger me-2">reset</button>
-                        <button type="submit" class="btn btn-success ms-2">create comic</button>
+                        <button type="reset" class="btn btn-danger me-2"><i class="fa-solid fa-rotate-right"></i>
+                            reset</button>
+                        <button type="submit" class="btn btn-success ms-2"><i class="fa-solid fa-check"></i> create
+                            comic</button>
                     </div>
 
                 </form>

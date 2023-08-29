@@ -83,14 +83,16 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
+                                <input type="text" class="form-control" id="title" name="title"
+                                    value="{{ $comic->title }}" required>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="series" class="form-label">Series</label>
-                                <input type="text" class="form-control" id="series" name="series" required>
+                                <input type="text" class="form-control" id="series" name="series"
+                                    value="{{ $comic->series }}" required>
                             </div>
                         </div>
                     </div>
@@ -100,15 +102,15 @@
                             <div class="mb-3">
                                 <label for="type" class="form-label">Type</label>
                                 <input type="text" class="form-control" id="type" name="type"
-                                    value="comic book">
+                                    value="{{ $comic->type }}">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="number" step="0.01" class="form-control" id="price" name="price"
-                                    required>
+                                <input type="number" step="0.01" class="form-control" id="price"
+                                    name="price" value="{{ $comic->price }}" required>
                             </div>
                         </div>
                     </div>
@@ -117,7 +119,7 @@
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" id="description" name="description"></textarea>
+                                <textarea class="form-control" id="description" name="description" rows="3">{{ $comic->description }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -126,19 +128,20 @@
                         <div class="col-md-2">
                             <div class="mb-3">
                                 <label for="sale_date" class="form-label">Sale Date</label>
-                                <input type="date" class="form-control" id="sale_date" name="sale_date">
+                                <input type="date" class="form-control" id="sale_date" name="sale_date"
+                                    value="{{ $comic->sale_date }}">
                             </div>
                         </div>
                         <div class="col-md-8">
                             <div class="mb-3">
                                 <label for="thumb" class="form-label">Thumbnail URL</label>
                                 <input type="text" class="form-control" id="thumb" name="thumb"
-                                    oninput="updatePreviewImage()">
+                                    value="{{ $comic->thumb }}" oninput="updatePreviewImage()">
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="mb-1">
-                                <img src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
+                                <img src="{{ $comic->thumb ?? 'https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg' }}"
                                     alt="preview" id="create-preview-thumb" class="ms-3">
                             </div>
                         </div>
@@ -148,21 +151,25 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="artists" class="form-label">Artists</label>
-                                <input type="text" class="form-control" id="artists" name="artists">
+                                <input type="text" class="form-control" id="artists" name="artists"
+                                    value="{{ $comic->artists }}">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="writers" class="form-label">Writers</label>
-                                <input type="text" class="form-control" id="writers" name="writers">
+                                <input type="text" class="form-control" id="writers" name="writers"
+                                    value="{{ $comic->writers }}">
                             </div>
                         </div>
                     </div>
 
                     <div class="d-flex justify-content-end">
-                        <button type="reset" class="btn btn-danger me-2">reset</button>
-                        <button type="submit" class="btn btn-success ms-2">confirm changes</button>
+                        <button type="reset" class="btn btn-danger me-2"><i class="fa-solid fa-rotate-right"></i>
+                            reset</button>
+                        <button type="submit" class="btn btn-success ms-2"><i class="fa-solid fa-check"></i> confirm
+                            changes</button>
                     </div>
 
                 </form>
