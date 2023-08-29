@@ -2,11 +2,6 @@
 
 @section('title', 'Comics')
 
-@php
-    use App\Models\Comic;
-    $comics = Comic::all();
-@endphp
-
 @section('main-content')
     <main>
         <div class="text-center">
@@ -42,16 +37,8 @@
                         <td>{{ $comic->series }}</td>
                         <td>{{ $comic->sale_date }}</td>
                         <td>{{ $comic->type }}</td>
-                        <td>
-                            @foreach (json_decode($comic->artists) as $artist)
-                                {{ $artist }},
-                            @endforeach
-                        </td>
-                        <td>
-                            @foreach (json_decode($comic->writers) as $writer)
-                                {{ $writer }},
-                            @endforeach
-                        </td>
+                        <td>{{ $comic->artists }}</td>
+                        <td>{{ $comic->writers }}</td>
                     </tr>
                 @endforeach
             </tbody>

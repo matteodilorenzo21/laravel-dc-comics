@@ -1,6 +1,6 @@
 @php
     use App\Models\Comic;
-    $comics = Comic::paginate(12);
+    $comics = Comic::paginate(14);
 @endphp
 
 <section>

@@ -40,12 +40,7 @@
                             </div>
                             <div class="col talent-right">
                                 <p>
-                                    @php
-                                        $artists = json_decode($comic->artists);
-                                    @endphp
-                                    @foreach ($artists as $key => $artist)
-                                        {{ $artist }}{{ $key < count($artists) - 1 ? ', ' : '.' }}
-                                    @endforeach
+                                    {{ str_replace(['[', ']', '"'], '', implode(', ', array_map('trim', is_array($comic->artists) ? $comic->artists : explode(', ', $comic->artists)))) }}
                                 </p>
                             </div>
                         </div>
@@ -57,12 +52,7 @@
                             </div>
                             <div class="col talent-right">
                                 <p>
-                                    @php
-                                        $writers = json_decode($comic->writers);
-                                    @endphp
-                                    @foreach ($writers as $key => $writer)
-                                        {{ $writer }}{{ $key < count($writers) - 1 ? ', ' : '.' }}
-                                    @endforeach
+                                    {{ str_replace(['[', ']', '"'], '', implode(', ', array_map('trim', is_array($comic->writers) ? $comic->writers : explode(', ', $comic->writers)))) }}
                                 </p>
                             </div>
                         </div>

@@ -16,7 +16,6 @@ class ComicController extends Controller
         return view('comics.index', compact('comics'));
     }
 
-
     /**
      * Show the form for creating a new resource.
      */
@@ -38,7 +37,7 @@ class ComicController extends Controller
 
         $comic->save();
 
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
