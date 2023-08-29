@@ -123,16 +123,23 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-10">
-                            <div class="mb-3">
-                                <label for="thumb" class="form-label">Thumbnail URL</label>
-                                <input type="text" class="form-control" id="thumb" name="thumb">
-                            </div>
-                        </div>
                         <div class="col-md-2">
                             <div class="mb-3">
                                 <label for="sale_date" class="form-label">Sale Date</label>
                                 <input type="date" class="form-control" id="sale_date" name="sale_date">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <label for="thumb" class="form-label">Thumbnail URL</label>
+                                <input type="text" class="form-control" id="thumb" name="thumb"
+                                    oninput="updatePreviewImage()">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <img src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
+                                    alt="preview" id="create-preview-thumb" class="ms-3">
                             </div>
                         </div>
                     </div>
@@ -166,6 +173,21 @@
         </div>
 
     </main>
+
+    <script>
+        const placeholder = "https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg";
+
+        function updatePreviewImage() {
+            const thumbInput = document.getElementById("thumb");
+            const previewThumb = document.getElementById("create-preview-thumb");
+
+            if (thumbInput.value) {
+                previewThumb.src = thumbInput.value;
+            } else {
+                previewThumb.src = placeholder;
+            }
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">

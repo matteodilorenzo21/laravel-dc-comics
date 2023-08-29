@@ -210,3 +210,22 @@ tr td:first-child {
         background-color: lightseagreen;
     }
 }
+
+#create-preview-thumb {
+    height: 150px;
+    width: 100px;
+    object-fit: contain;
+    box-shadow: none;
+    border: 1px solid $bg-secondary;
+    border-radius: 0;
+    margin-bottom: 0;
+    cursor: default;
+    filter: none;
+    transition: none;
+
+    &:hover {
+        filter: none;
+        box-shadow: none;
+    }
+
+}

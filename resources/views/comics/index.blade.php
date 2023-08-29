@@ -4,7 +4,7 @@
 
 @section('main-content')
     <main>
-        <div class="text-center">
+        <div class="text-center py-3">
             <h1 class="text-center text-white py-3">REGISTERED COMICS</h1>
             <span class="text-white">UPLOAD A NEW COMIC</span>
             <a id="add-comic-btn" class="mt-2 mx-2" href="{{ route('comics.create') }}">+</a>
