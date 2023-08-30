@@ -41,6 +41,9 @@ Route::post('/comics', [ComicController::class, 'store'])->name('comics.store');
 // UPDATE COMIC
 Route::put('/comics/{comic}', [ComicController::class, 'update'])->name('comics.update');
 
+// DELETE COMIC
+Route::delete('/comics/{comic}', [ComicController::class, 'destroy'])->name('comics.destroy');
+
 // MOVIES
 Route::get('/movies', function () {
     return view('movies');

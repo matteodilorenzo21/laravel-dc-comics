@@ -92,12 +92,20 @@
             </div>
         </div>
     </section>
-    <div class="row mt-3" id="edit-action">
-        <div class="col text-center mt-3">
+    <div class="row mt-1" id="edit-action">
+        <div class="col text-center mt-3 d-flex">
             <a id="index-btn" class="mt-3 mx-1" href="{{ route('comics.index') }}">Index <i
                     class="fa-solid fa-bars"></i></a>
-            <a id="edit-comic-btn" class="mt-3 mx-1" href="{{ route('comics.edit', $comic->id) }}">Edit <i
+            <a id="edit-comic-btn" class="mt-3 mx-3" href="{{ route('comics.edit', $comic->id) }}">Edit <i
                     class="fa-solid fa-pen-to-square"></i></a>
+
+            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button id="delete-comic-btn" class="mt-3 mx-1" href="{{ route('comics.destroy', $comic->id) }}">Delete <i
+                        class="fa-solid fa-trash-can"></i></button>
+            </form>
+
         </div>
     </div>
 @endsection
